@@ -13,57 +13,57 @@ function getAction(error: ChatError, reset: () => void) {
     reset()
     return (
       <div>
-        你已达到每日最大发送消息次数，请<a href={`#dialog="settings"`}>更换账号</a>或隔一天后重试
+        You reached the maximum number of messages you can send today. <a href={`#dialog="settings"`}> Change your account or try later.
       </div>
     )
   }
   if (error.code === ErrorCode.BING_IP_FORBIDDEN) {
     return (
       <ExternalLink href="https://github.com/weaigc/bingo/issues">
-        你的服务器或代理已被封禁，请更换服务器或使用代理重试
+        Your server or proxy has been banned, please change the server or use a proxy and try again.
       </ExternalLink>
     )
   }
   if (error.code === ErrorCode.BING_TRY_LATER) {
     return (
       <a href={`#dialog="reset"`}>
-        创建会话失败，请手动重试
+        Session creation failed, please retry manually.
       </a>
     )
   }
   if (error.code === ErrorCode.BING_FORBIDDEN) {
     return (
       <ExternalLink href="https://bing.com/new">
-        你的账号已在黑名单，请尝试更换账号及申请解封
+        Your account has been blacklisted, please try to change your account and apply for unblocking.
       </ExternalLink>
     )
   }
   if (error.code === ErrorCode.CONVERSATION_LIMIT) {
     return (
       <div>
-        当前话题已中止，请点
-        <a href={`#dialog="reset"`}>重新开始</a>
-        开启新的对话
+        The current topic has been suspended, please click
+        <a href={`#dialog="reset"`}>the restart button</a>
+        to try again.
       </div>
     )
   }
   if (error.code === ErrorCode.BING_CAPTCHA) {
     return (
       <ExternalLink href="https://www.bing.com/turing/captcha/challenge">
-        点击通过人机验证
+        Complete the captcha
       </ExternalLink>
     )
   }
   if (error.code === ErrorCode.BING_UNAUTHORIZED) {
     reset()
     return (
-      <a href={`#dialog="settings"`}>没有获取到用户信息或用户信息失效，点此重新设置</a>
+      <a href={`#dialog="settings"`}>The user information could not be obtained or the user information is invalid, click here to reset.</a>
     )
   }
   if (error.code === ErrorCode.BING_IMAGE_UNAUTHORIZED) {
     reset()
     return (
-      <a href={`#dialog="settings"`}>画图需要用户信息，系统没有获取到有效的用户信息，点此设置</a>
+      <a href={`#dialog="settings"`}></a>Drawing requires user information, the system has not obtained valid user information, click here to set.</a>
     )
   }
   return error.message
