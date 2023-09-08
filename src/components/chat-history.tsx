@@ -46,23 +46,23 @@ export function ConversationThead({ conversation, onRename, onDelete, onUpdate, 
         {!isEdit && (<h4 className="time">{formatDate(conversation.updateTimeUtc)}</h4>)}
         <div className="controls">
           {!isEdit ? (<>
-            <button className="edit icon-button" type="button" aria-label="重命名" onClick={() => setEdit(true)}>
+            <button className="edit icon-button" type="button" aria-label="double naming" onClick={() => setEdit(true)}>
               <IconEdit />
             </button>
 
-            <button className="delete icon-button" type="button" aria-label="删除" onClick={handleDelete}>
+            <button className="delete icon-button" type="button" aria-label="delete" onClick={handleDelete}>
               <IconTrash />
             </button>
 
-            <button className="export icon-button" type="button" aria-label="导出" onClick={handleDownload}>
+            <button className="export icon-button" type="button" aria-label="export" onClick={handleDownload}>
               <IconDownload />
             </button>
           </>) : (
             <>
-              <button className="edit icon-button" type="button" aria-label="保存" onClick={handleSave}>
+              <button className="edit icon-button" type="button" aria-label="keep" onClick={handleSave}>
                 <IconCheck />
               </button>
-              <button className="edit icon-button" type="button" aria-label="取消" onClick={() => setEdit(false)}>
+              <button className="edit icon-button" type="button" aria-label="cancel" onClick={() => setEdit(false)}>
                 <IconClose />
               </button>
             </>
