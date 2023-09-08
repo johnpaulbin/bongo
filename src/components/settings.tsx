@@ -27,7 +27,7 @@ export function Settings() {
 
   useEffect(() => {
     if (isCopied) {
-      toast.success('复制成功')
+      toast.success('Copied!')
     }
   }, [isCopied])
 
@@ -38,7 +38,7 @@ export function Settings() {
         headerValue = atob(headerValue)
       } catch (e) { }
       if (!/^\s*curl ['"]https:\/\/(www|cn)\.bing\.com\/turing\/captcha\/challenge['"]/.test(headerValue)) {
-        toast.error('用户信息格式不正确')
+        toast.error('User information format is incorrect')
         return
       }
       if (RegExp.$1 === 'cn' && checked === false) {
@@ -47,7 +47,7 @@ export function Settings() {
       }
       setImageOnly(checked)
     } else {
-      toast.error('请先配置用户信息')
+      toast.error('Please configure user information first')
     }
   }, [curlValue])
 
@@ -56,20 +56,20 @@ export function Settings() {
       <Dialog open onOpenChange={() => setLoc('')} modal>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>设置你的用户信息</DialogTitle>
+            <DialogTitle>Set up your user information</DialogTitle>
             <DialogDescription>
-              请使用 Edge 浏览器
+              Please use the Microsoft Edge browser
               <ExternalLink
                 href="https://www.bing.com"
               >
-                打开并登录 Bing
+                Open and sign in to Bing
               </ExternalLink>
-              ，然后再打开
-              <ExternalLink href="https://www.bing.com/turing/captcha/challenge">Challenge 接口</ExternalLink>
-              右键 》检查。打开开发者工具，在网络里面找到 Challenge 接口 》右键复制》复制为 cURL(bash)，粘贴到此处，然后保存。
+               then open
+              <ExternalLink href="https://www.bing.com/turing/captcha/challenge">Challenge interface</ExternalLink>
+              Right click > Inspect. Open the developer tools, find the Challenge interface in the network, right-click and copy, copy as cURL (bash), paste it here, and save.
               <div className="h-2" />
-              图文示例：
-              <ExternalLink href="https://github.com/weaigc/bingo#如何获取%20BING_HEADER">如何获取 BING_HEADER</ExternalLink>
+              Image example:
+              <ExternalLink href="https://github.com/weaigc/bingo#如何获取%20BING_HEADER">How to get the BING HEADER:</ExternalLink>
             </DialogDescription>
           </DialogHeader>
           <div className="flex gap-4">
@@ -77,7 +77,7 @@ export function Settings() {
           </div>
           <Input
             value={curlValue}
-            placeholder="在此填写用户信息，格式: curl 'https://www.bing.com/turing/captcha/challenge' ..."
+            placeholder="Fill in the user information here. Format: curl 'https://www.bing.com/turing/captcha/challenge' ..."
             onChange={e => setCurlValue(e.target.value)}
           />
           <div className="flex gap-2">
@@ -90,7 +90,7 @@ export function Settings() {
                 className={`${imageOnly ? 'translate-x-6' : 'translate-x-1'} inline-block h-4 w-4 transform rounded-full bg-white transition`}
               />
             </Switch>
-            用户信息仅用于画图（账号异常时使用）
+            User information is only used for drawing (used when the account is abnormal)
           </div>
 
           {!imageOnly && (
@@ -104,12 +104,12 @@ export function Settings() {
                   className={`${enabledHistory ? 'translate-x-6' : 'translate-x-1'} inline-block h-4 w-4 transform rounded-full bg-white transition`}
                 />
               </Switch>
-              启用历史记录
+              enable history
             </div>
           )}
 
           <Button variant="ghost" className="bg-[#F5F5F5] hover:bg-[#F2F2F2]" onClick={() => copyToClipboard(btoa(curlValue))}>
-            转成 BING_HEADER 并复制
+            Convert to BING_HEADER and copy
           </Button>
 
           <DialogFooter className="items-center">
@@ -123,7 +123,7 @@ export function Settings() {
                     headerValue = atob(headerValue)
                   } catch (e) { }
                   if (!/^\s*curl ['"]https:\/\/(www|cn)\.bing\.com\/turing\/captcha\/challenge['"]/.test(headerValue)) {
-                    toast.error('用户信息格式不正确')
+                    toast.error('User information format is incorrect')
                     return
                   }
                   const maxAge = 86400 * 30
@@ -133,14 +133,14 @@ export function Settings() {
                 }
                 setCookie('IMAGE_ONLY', RegExp.$1 === 'cn' || imageOnly || !headerValue ? '1' : '0')
 
-                toast.success('保存成功')
+                toast.success('Saved successfully')
                 setLoc('')
                 setTimeout(() => {
                   location.href = './'
                 }, 2000)
               }}
             >
-              保存
+              keep
             </Button>
           </DialogFooter>
         </DialogContent>
@@ -151,14 +151,14 @@ export function Settings() {
       <Dialog open onOpenChange={() => setLoc('')} modal>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>语音设置</DialogTitle>
+            <DialogTitle>voice settings</DialogTitle>
             <DialogDescription>
-              目前仅支持 PC 端 Edge 及 Chrome 浏览器
+              Currently only supports Edge and Chrome browsers on PC
             </DialogDescription>
           </DialogHeader>
 
           <div className="flex gap-2">
-            启用语音回答
+            Enable voice answers
             <Switch
               checked={enableTTS}
               className={`${enableTTS ? 'bg-blue-600' : 'bg-gray-200'} relative inline-flex h-6 w-11 items-center rounded-full`}
@@ -174,14 +174,14 @@ export function Settings() {
             <Button
               variant="secondary"
               onClick={() => {
-                toast.success('保存成功')
+                toast.success('Saved successfully')
                 setLoc('')
                 setTimeout(() => {
                   location.href = './'
                 }, 2000)
               }}
             >
-              保存
+              keep
             </Button>
           </DialogFooter>
         </DialogContent>
