@@ -13,15 +13,15 @@ export function ChatFeedback({ text }: ChatFeedbackProps) {
 
   useEffect(() => {
     if (isCopied) {
-      toast.success('复制成功')
+      toast.success('Copied!')
     }
   }, [isCopied])
   return text ? (
     <div className="chat-feedback">
       <div className="chat-feedback-container">
-        <button type="button" role="button" aria-label="复制" title="复制" onClick={() => copyToClipboard(text)}>
+        <button type="button" role="button" aria-label="copy" title="copy" onClick={() => copyToClipboard(text)}>
           <SVG src={CopyIcon} width={24} />
-          <div>复制</div>
+          <div>copy</div>
         </button>
       </div>
     </div>
