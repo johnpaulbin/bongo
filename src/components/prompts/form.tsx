@@ -42,10 +42,10 @@ const PromptItem = (props: {
         <div title={props.prompt} className="truncate text-sm font-medium text-primary-text">{props.title}</div>
       </div>
       <div className="flex flex-row gap-1">
-        <ActionButton text="使用" onClick={() => props.insertPrompt(props.prompt)} />
-        {props.edit && <ActionButton text="编辑" onClick={props.edit} />}
-        {props.addToLocal && <ActionButton text={saved ? '已添加' : '添加'} onClick={copyToLocal} />}
-        {props.remove && <ActionButton text="删除" onClick={props.remove} />}
+        <ActionButton text="use" onClick={() => props.insertPrompt(props.prompt)} />
+        {props.edit && <ActionButton text="edit" onClick={props.edit} />}
+        {props.addToLocal && <ActionButton text={saved ? 'added' : 'add to'} onClick={copyToLocal} />}
+        {props.remove && <ActionButton text="delete" onClick={props.remove} />}
       </div>
     </div>
   )
@@ -127,14 +127,14 @@ function LocalPrompts(props: { insertPrompt: (text: string) => void }) {
         </div>
       ) : (
         <div className="relative block w-full rounded-lg border-2 border-dashed border-gray-300 p-3 text-center text-sm mt-5 text-primary-text">
-          你还没有提示词，请手动添加
+          You don't have a prompt yet, please add them.
         </div>
       )}
       <div className="mt-5">
         {formData ? (
           <PromptForm initialData={formData} onSubmit={savePrompt} onClose={() => setFormData(null)} />
         ) : (
-          <Button onClick={create}>创建提示词</Button>
+          <Button onClick={create}>Create prompts</Button>
         )}
       </div>
     </>
