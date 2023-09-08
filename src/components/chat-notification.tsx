@@ -13,7 +13,7 @@ function getAction(error: ChatError, reset: () => void) {
     reset()
     return (
       <div>
-        You reached the maximum number of messages you can send today. <a href={`#dialog="settings"`}> Change your account or try later.
+        You reached the maximum number of messages you can send today. <a href={`#dialog="settings"`}></a> Change your account or try later.
       </div>
     )
   }
