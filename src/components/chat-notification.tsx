@@ -63,7 +63,7 @@ function getAction(error: ChatError, reset: () => void) {
   if (error.code === ErrorCode.BING_IMAGE_UNAUTHORIZED) {
     reset()
     return (
-      <a href={`#dialog="settings"`}></a>Drawing requires user information, the system has not obtained valid user information, click here to set.</a>
+      <a href={`#dialog="settings"`}>Drawing requires user information, the system has not obtained valid user information, click here to set.</a>
     )
   }
   return error.message
