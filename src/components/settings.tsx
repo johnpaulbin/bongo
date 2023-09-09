@@ -66,7 +66,7 @@ export function Settings() {
               </ExternalLink>
                then open
               <ExternalLink href="https://www.bing.com/turing/captcha/challenge">Challenge interface</ExternalLink>
-              Right click > Inspect. Open the developer tools, find the Challenge interface in the network, right-click and copy, copy as cURL (bash), paste it here, and save.
+              Right click then Inspect. Open the developer tools, find the Challenge interface in the network, right-click and copy, copy as cURL (bash), paste it here, and save.
               <div className="h-2" />
               Image example:
               <ExternalLink href="https://github.com/weaigc/bingo#如何获取%20BING_HEADER">How to get the BING HEADER:</ExternalLink>
@@ -90,7 +90,7 @@ export function Settings() {
                 className={`${imageOnly ? 'translate-x-6' : 'translate-x-1'} inline-block h-4 w-4 transform rounded-full bg-white transition`}
               />
             </Switch>
-            User information is only used for drawing (used when the account is abnormal)
+            User information is only used for drawing
           </div>
 
           {!imageOnly && (
