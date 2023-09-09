@@ -71,16 +71,16 @@ function PromptForm(props: { initialData: Prompt; onSubmit: (data: Prompt) => vo
   return (
     <form className="flex flex-col gap-2 w-full" onSubmit={onSubmit}>
       <div className="w-full">
-        <span className="text-sm font-semibold block mb-1 text-primary-text">提示词标题</span>
+        <span className="text-sm font-semibold block mb-1 text-primary-text">Prompt title</span>
         <Input className="w-full" name="title" defaultValue={props.initialData.title} />
       </div>
       <div className="w-full">
-        <span className="text-sm font-semibold block mb-1 text-primary-text">提示词内容</span>
+        <span className="text-sm font-semibold block mb-1 text-primary-text">Prompt word content</span>
         <Textarea className="w-full" name="prompt" defaultValue={props.initialData.prompt} />
       </div>
       <div className="flex flex-row gap-2 mt-1">
-        <Button color="primary" className="w-fit" type="submit">保存</Button>
-        <Button variant="secondary" className="w-fit" onClick={props.onClose}>取消</Button>
+        <Button color="primary" className="w-fit" type="submit">keep</Button>
+        <Button variant="secondary" className="w-fit" onClick={props.onClose}>Cancel</Button>
       </div>
     </form>
   )
@@ -127,7 +127,7 @@ function LocalPrompts(props: { insertPrompt: (text: string) => void }) {
         </div>
       ) : (
         <div className="relative block w-full rounded-lg border-2 border-dashed border-gray-300 p-3 text-center text-sm mt-5 text-primary-text">
-          You don't have a prompt yet, please add them.
+          You dont have a prompt yet, please add them.
         </div>
       )}
       <div className="mt-5">
@@ -146,7 +146,7 @@ function CommunityPrompts(props: { insertPrompt: (text: string) => void }) {
   const [remotePrompts, setRemotePrompts] = useState<Prompt[]>([])
 
   useEffect(() => {
-    fetch('./prompts/zh-CN.json')
+    fetch('./prompts/us-EN.json')
     .then(res => res.json())
     .then(data => {
       setRemotePrompts(data)
@@ -171,7 +171,7 @@ function CommunityPrompts(props: { insertPrompt: (text: string) => void }) {
         )) : <PulseLoader size={10} className="mt-5" color="var(--cib-color-fill-accent-gradient-primary)" />}
       </div>
       <span className="text-sm mt-5 block text-primary-text">
-        提示词贡献地址：
+        Prompt word contribution address：
         <a
           href="https://github.com/weaigc/bingo"
           target="_blank"
