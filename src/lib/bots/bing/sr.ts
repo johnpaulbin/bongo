@@ -24,7 +24,7 @@ export class SR {
     if (!this.recognition) {
       return
     }
-    this.configuration('zh-CN')
+    this.configuration('en-US')
     if (commands.length) {
       this.commandsRe = new RegExp(`^(${commands.join('|')})。?$`)
     }
