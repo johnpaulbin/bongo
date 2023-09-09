@@ -186,8 +186,8 @@ export class BingWebBot {
             text: conversation.prompt,
             imageUrl: conversation.imageUrl,
             messageType: 'Chat',
-            locale: 'zh-CN',
-            market: 'zh-CN',
+            locale: 'en-US',
+            market: 'en-US',
             region: 'US',
             location: 'lat:47.639557;long:-122.128159;re=1000m;',
             locationHints: [
