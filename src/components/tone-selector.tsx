@@ -30,7 +30,6 @@ export function ToneSelector({ type, onChange }: ToneSelectorProps) {
             ToneList.map(tone => (
               <li className="option" key={tone.name} onClick={() => onChange?.(tone.type)}>
                 <button className={cn(`tone-${type.toLowerCase()}`, { selected: tone.type === type}) } aria-pressed="true" >
-                  <span className="caption-2-strong label-modifier">Change</span>
                   <span className="body-1-strong label">{tone.name}</span>
                 </button>
               </li>
