@@ -47,7 +47,7 @@ export async function createImage(prompt: string, id: string, headers: HeadersIn
   );
 
   if (!/&id=([^&]+)$/.test(responseHeaders.get('location') || '')) {
-    throw new Error(`没有登录或登录已过期`)
+    throw new Error(`Not logged in or login expired`)
   }
 
   const resultId = RegExp.$1;
