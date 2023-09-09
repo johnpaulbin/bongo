@@ -117,30 +117,31 @@ export function ChatImage({ children, uploadImage }: React.PropsWithChildren<Cha
     }
   }, [panel])
 
-  return (
-    <div className="visual-search-container">
-      <div onClick={() => panel === 'none' ? setPanel('normal') : setPanel('none')}>{children}</div>
-      <div className={cn('visual-search', panel)} onClick={preventDefault}>
-        <div className="normal-content">
-          <div className="header">
-            <h4>Upload an image</h4>
-          </div>
-          <div className="paste">
-            <SVG alt="paste" src={PasteIcon} width={24} />
-            <form onSubmitCapture={onEnter}>
-              <input
-                className="paste-input"
-                id="sb_imgpst"
-                type="text"
-                name="image"
-                placeholder="Paste the image URL"
-                aria-label="Paste the image URL"
-                onPaste={onPaste}
-                onClickCapture={(e) => e.stopPropagation()}
-              />
-            </form>
-          </div>
+return (
+  <div className="visual-search-container">
+    <div onClick={() => panel === 'none' ? setPanel('normal') : setPanel('none')}>{children}</div>
+    <div className={cn('visual-search', panel)} onClick={preventDefault}>
+      <div className="normal-content">
+        <div className="header">
+          <h4>Upload an image</h4>
+        </div>
+        <div className="paste">
+          <SVG alt="paste" src={PasteIcon} width={24} />
+          <form onSubmitCapture={onEnter}>
+            <input
+              className="paste-input"
+              id="sb_imgpst"
+              type="text"
+              name="image"
+              placeholder="Paste the image URL"
+              aria-label="Paste the image URL"
+              onPaste={onPaste}
+              onClickCapture={(e) => e.stopPropagation()}
+            />
+          </form>
+        </div>
       </div>
     </div>
-  )
-}
+  </div>
+);
+
