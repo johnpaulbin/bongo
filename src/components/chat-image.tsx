@@ -123,7 +123,7 @@ export function ChatImage({ children, uploadImage }: React.PropsWithChildren<Cha
       <div className={cn('visual-search', panel)} onClick={preventDefault}>
         <div className="normal-content">
           <div className="header">
-            <h4>add image</h4>
+            <h4>Upload an image</h4>
           </div>
           <div className="paste">
             <SVG alt="paste" src={PasteIcon} width={24} />
@@ -140,34 +140,6 @@ export function ChatImage({ children, uploadImage }: React.PropsWithChildren<Cha
               />
             </form>
           </div>
-          <div className="buttons">
-            <button type="button" aria-label="Upload from this device">
-              <input
-                ref={fileRef}
-                className="fileinput"
-                type="file"
-                accept="image/gif, image/jpeg, image/png, image/webp"
-                onChange={onUpload}
-              />
-              <SVG alt="uplaod" src={UploadIcon} width={20} />
-              从此设备上传
-            </button>
-            <button type="button" aria-label="Take a photo" onClick={openVideo}>
-              <SVG alt="camera" src={CameraIcon} width={20} />
-              拍照
-            </button>
-          </div>
-        </div>
-        {panel === 'camera-mode' && <div className="cam-content">
-          <div className="webvideo-container">
-            <video className="webvideo" autoPlay muted playsInline ref={videoRef} />
-            <canvas className="webcanvas" ref={canvasRef} />
-          </div>
-          <div className="cambtn" role="button" aria-label="拍照" onClick={onCapture}>
-            <div className="cam-btn-circle-large"></div>
-            <div className="cam-btn-circle-small"></div>
-          </div>
-        </div>}
       </div>
     </div>
   )
